@@ -1,0 +1,16 @@
+input {
+    line-height: 2rem;
+    border-radius: 4px;
+    border: 1px solid $framing;
+    transition: 300ms ease all;
+    box-shadow: none;
+    padding: 0px 5px;
+
+    &:hover {
+        border-color: $primary;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

@@ -1,0 +1,36 @@
+button {
+    border: 1px solid $framing;
+    border-radius: 4px;
+    line-height: 2rem;
+    font-size: 14px;
+    background: $background;
+    width: 150px;
+    cursor: pointer;
+    
+    &.disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+
+    &.primary {
+        background: $primary;
+        color: $background;
+    }
+
+    &.secondary {
+        transition: 300ms ease all;
+        border-color: $framing;
+        color: $carboncopy;
+
+        &:hover,
+        &:focus {
+            color: $primary;
+            border-color: $primary;
+        }
+
+        &.disabled:hover {
+            color: $carboncopy;
+            border-color: $framing;
+        }
+    }
+}

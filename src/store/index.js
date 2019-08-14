@@ -8,23 +8,22 @@ const initialState = {
 }
 
 const mutations = {
-    'SET_PAGE': (state, payload) => {
-        state.page = payload
+    'SET_PAGE': (state, page) => {
+        state = { ...state, page }
     },
-    'SET_VIEWING_AMOUNT': (state, payload) => {
-        state.viewingAmount = payload
+    'SET_VIEWING_AMOUNT': (state, viewingAmount) => {
+        state = { ...state, viewingAmount }
     },
-    'SET_STORE_ITEMS': (state, payload) => {
-        state.storeItems = payload
+    'SET_STORE_ITEMS': (state, storeItems) => {
+        state = { ...state, storeItems }
     },
-    'SET_STORE_CONFIG': (state, payload) => {
-        state.storeConfig = payload
+    'SET_STORE_CONFIG': (state, storeConfig) => {
+        state = { ...state, storeConfig }
     }
 }
 
 const reducer = (state, { type, payload }) => {
     mutations[type](state, payload)
-
     return state
 }
 
@@ -32,11 +31,6 @@ const store = createStore(reducer, initialState)
 
 store.subscribe(() => {
     console.log('Store updated: ', store.getState())
-})
-
-store.dispatch({
-    type: 'SET_PAGE',
-    payload: 2
 })
 
 export default store

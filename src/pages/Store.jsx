@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import Input from '../components/Input'
+import Pagination from '../components/Pagination'
+import AssetGrid from '../components/AssetGrid.jsx'
 
-export default function () {
-    const [val, setVal] = useState('')
-
-    const eventSet = ev => {
-        this.setVal(ev.currentTarget.value)
-    }
-
-    return (<div><Input value={ val } onInput={ () => eventSet}/></div>)
+export default () => {
+    let [computedItems] = useState(undefined)
+    return (
+        <section>
+            <Pagination />
+            <AssetGrid items={computedItems} />
+            <Pagination />
+        </section>
+    )
 }

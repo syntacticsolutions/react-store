@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import Pagination from '../components/Pagination'
 import AssetGrid from '../components/AssetGrid.jsx'
 
+// console.log(store.getState())
+
 export default () => {
-    let [computedItems] = useState(undefined)
+    console.log(useState)
     return (
         <section>
             <Pagination />
-            <AssetGrid items={computedItems} />
+            <AssetGrid />
             <Pagination />
         </section>
     )

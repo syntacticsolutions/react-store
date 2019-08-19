@@ -1,8 +1,10 @@
 import { createStore } from 'redux'
+import storeConfig from '../assets/mock-endpoints/storeConfig.json'
+import storeItems from '../assets/mock-endpoints/storeItems.json'
 
 const initialState = {
-    storeItems: [],
-    storeConfig: [],
+    storeItems,
+    storeConfig,
     page: 1,
     viewingAmount: 20,
     cart: []
@@ -20,6 +22,7 @@ const mutations = {
     },
     'ADD_TO_CART': (state, item) => {
         state = { ...state, cart: state.cart.push(item) }
+        // TODO add to localStore
     },
     'REMOVE_FROM_CART': (state, itemTitle) => {
         const itemIndex = state.cart.findIndex(({ title }) => itemTitle === title)
@@ -27,23 +30,16 @@ const mutations = {
         if (itemIndex > -1) {
             state = { ...state, cart: state.cart.splice(itemIndex, 1) }
         }
+        // TODO add to localStorage
     },
     'SET_STORE_CONFIG': (state, storeConfig) => {
         state = { ...state, storeConfig }
     }
 }
 
-const reducer = (state, { type, payload }) => {
-    mutations[type](state, payload)
-    return state
+export default storeReducer = (state = initialState, { type, payload }) => {
+    if (mutations[type]) {
+        return mutations[type](state, payload)
+    }
+    return { ...state }
 }
-
-const store = createStore(reducer, initialState)
-
-store.subscribe(() => {
-    console.log('Store updated: ', store.getState())
-})
-
-window.store = store
-
-export default store

@@ -1,23 +1,24 @@
-nav.responsive-navigation {
-    background: #333333;
-    height: 55px;
+nav.responsive-toolbar {
+    background: $carboncopy;
+    height: 60px;
     width: 100%;
     position: fixed;
-    box-shadow: 1px 2px 2px 1px #CCC;
+    box-shadow: 1px 2px 2px 1px $framing;
+    z-index: 9;
 
-    & ~ div {
+    & ~ * {
         padding-top: 60px;
-    } 
+    }
 
     ul {
-        background: #333333;
+        background: $carboncopy;
         display: flex;
         margin-block-start: 0;
         margin-block-end: 0;
         padding-inline-start: 0;
         height: 100%;
         align-items: center;
-        box-shadow: 1px 2px 2px 1px #CCC;
+        box-shadow: 1px 2px 2px 1px $framing;
 
         figure {
             margin-block-start: 0;
@@ -37,7 +38,7 @@ nav.responsive-navigation {
         }
 
         a {
-            color: white;
+            color: $background;
             text-decoration: none;
             display: flex;
             flex-direction: row-reverse;
@@ -52,7 +53,7 @@ nav.responsive-navigation {
 }
 
 @media screen and (max-width: 759px) {
-    nav.responsive-navigation {
+    nav.responsive-toolbar {
         ul {
             height: 100%;
             width: 300px;
@@ -84,6 +85,14 @@ nav.responsive-navigation {
                 margin-left: 20px;
                 margin-right: 16px;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav.responsive-toolbar {
+        ul {
+            left: -300px;
         }
     }
 }
